@@ -1,0 +1,76 @@
+<idea-plugin>
+    <id>dev.ereader.rider</id>
+    <name>Rider EReader</name>
+    <vendor>EReader</vendor>
+
+    <description><![CDATA[
+        Read EPUB books from the Rider status bar with quick actions for open, page navigation, table of contents, and hide/show.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="dev.ereader.rider.ui.EReaderStatusBarInstaller"/>
+    </extensions>
+
+    <actions>
+        <group id="EReader.Actions" text="EReader" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+
+            <action id="EReader.OpenBook"
+                    class="dev.ereader.rider.actions.OpenBookAction"
+                    text="EReader: Open EPUB"
+                    description="Open an EPUB book in the status bar reader">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt O"/>
+            </action>
+
+            <action id="EReader.PreviousPage"
+                    class="dev.ereader.rider.actions.PreviousPageAction"
+                    text="EReader: Previous Page"
+                    description="Go to the previous EReader page">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt LEFT"/>
+            </action>
+
+            <action id="EReader.NextPage"
+                    class="dev.ereader.rider.actions.NextPageAction"
+                    text="EReader: Next Page"
+                    description="Go to the next EReader page">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt RIGHT"/>
+            </action>
+
+            <action id="EReader.ChooseChapter"
+                    class="dev.ereader.rider.actions.ChooseChapterAction"
+                    text="EReader: Choose Chapter"
+                    description="Choose an EPUB chapter from the table of contents">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt T"/>
+            </action>
+
+            <action id="EReader.CopyCurrentPage"
+                    class="dev.ereader.rider.actions.CopyCurrentPageAction"
+                    text="EReader: Copy Current Page"
+                    description="Copy the current EReader page text to the clipboard"/>
+
+            <action id="EReader.ToggleHighlight"
+                    class="dev.ereader.rider.actions.ToggleHighlightAction"
+                    text="EReader: Hover Highlight"
+                    description="Highlight the EReader status bar text when hovering"/>
+
+            <action id="EReader.ToggleHoverText"
+                    class="dev.ereader.rider.actions.ToggleHoverTextAction"
+                    text="EReader: Show Text on Hover"
+                    description="Show the complete EReader text in a tooltip when hovering"/>
+
+            <action id="EReader.ToggleMouseWheelPaging"
+                    class="dev.ereader.rider.actions.ToggleMouseWheelPagingAction"
+                    text="EReader: Mouse Wheel Page Turning"
+                    description="Turn pages with the mouse wheel while hovering over the visible EReader text"/>
+
+            <action id="EReader.ToggleHidden"
+                    class="dev.ereader.rider.actions.ToggleHiddenAction"
+                    text="EReader: Hide or Show"
+                    description="Hide or show the EReader status bar text">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt H"/>
+            </action>
+        </group>
+    </actions>
+</idea-plugin>
