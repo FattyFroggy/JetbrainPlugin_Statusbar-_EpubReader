@@ -1,0 +1,2 @@
+# JetbrainPlugin_Statusbar-_EpubReader
+支持2026以上jetbrain系列编辑器状态栏看epub小说摸鱼插件
